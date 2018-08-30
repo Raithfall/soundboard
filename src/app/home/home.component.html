@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title-group>
+    <mat-card-title><h2>{{soundboard.name}}</h2></mat-card-title>
+    <div fxFlex></div>
+    <button mat-fab color="primary" (click)="toggleVisible()"><i class="material-icons">add</i></button>
+  </mat-card-title-group>
+  <mat-card-content>
+    {{soundboard.description}}
+  </mat-card-content>
+</mat-card>
+
+<mat-grid-list cols={{colsNumber}} rowHeight="2:1" gutterSize="20px" style="margin: 20px;">
+
+  <mat-grid-tile class="mat-card" (click)="play(sound)" *ngFor="let sound of soundboard.sounds">
+    <div class="mat-grid-tile-header" *ngIf="visible" [@slideInOut]>{{sound.name}} </div>
+    <a class="btn-floating halfway-fab waves-effect waves-light red"></a>
+    <div class="landscape"><img src="assets/sounds/{{sound.image}}"></div>
+  </mat-grid-tile>
+
+</mat-grid-list>
