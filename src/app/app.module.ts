@@ -3,13 +3,10 @@ import { NgModule } from '@angular/core';
 import {
   MatCardModule, MatMenuModule, MatToolbarModule, MatGridListModule, MatTableModule, MatDialogModule,
   MatRadioModule, MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatStepperModule,
-  MatButtonModule, MatSnackBarModule, MatListModule, MatButtonToggleModule, MatSelectModule
+  MatButtonModule, MatSnackBarModule, MatListModule, MatButtonToggleModule, MatSelectModule, MatProgressBarModule
 } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
-
-
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -41,6 +38,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatRadioModule,
     MatStepperModule,
+    MatProgressBarModule,
     FlexLayoutModule,
     MatListModule,
     MatSelectModule,

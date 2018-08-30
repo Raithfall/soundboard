@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
 
   colsNumber: number;
   soundboard: Soundboard;
-  visible = true;
 
   constructor(private soundService: SoundService) {
   }
@@ -35,11 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   play(sound: Sound) {
-    sound.audio.play();
-  }
-
-  toggleVisible() {
-    this.visible = !this.visible;
+    this.soundboard.play(sound);
   }
 
 }

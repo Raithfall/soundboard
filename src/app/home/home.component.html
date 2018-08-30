@@ -1,20 +1,24 @@
 <mat-card>
-  <mat-card-title-group>
-    <mat-card-title><h2>{{soundboard.name}}</h2></mat-card-title>
-    <div fxFlex></div>
-    <button mat-fab color="primary" (click)="toggleVisible()"><i class="material-icons">add</i></button>
-  </mat-card-title-group>
   <mat-card-content>
-    {{soundboard.description}}
+    <div layout="row" layout-align="center center">
+      <h1>{{soundboard.name}}</h1>
+      <div fxFlex></div>
+      <div *ngIf="soundboard.isPlaying()"><mat-icon>volume_up</mat-icon></div>
+      <button mat-fab color="primary"><i class="material-icons">add</i></button>
+    </div>
   </mat-card-content>
 </mat-card>
 
 <mat-grid-list cols={{colsNumber}} rowHeight="2:1" gutterSize="20px" style="margin: 20px;">
 
-  <mat-grid-tile class="mat-card" (click)="play(sound)" *ngFor="let sound of soundboard.sounds">
-    <div class="mat-grid-tile-header" *ngIf="visible" [@slideInOut]>{{sound.name}} </div>
-    <a class="btn-floating halfway-fab waves-effect waves-light red"></a>
+  <mat-grid-tile class="mat-card" (click)="play(sound)"
+                 (mouseenter)="sound.isActive = true" (mouseleave)="sound.isActive = false"
+                 *ngFor="let sound of soundboard.sounds">
+    <div class="mat-grid-tile-header" *ngIf="sound.isActive" [@slideInOut]>{{sound.name}} </div>
     <div class="landscape"><img src="assets/sounds/{{sound.image}}"></div>
+    <div class="mat-grid-tile-footer" *ngIf>
+      <mat-progress-bar [value]="sound.audio.currentTime/sound.audio.duration*100"></mat-progress-bar>
+    </div>
   </mat-grid-tile>
 
 </mat-grid-list>

@@ -16,9 +16,6 @@ export class SoundService {
     soundList.push(new Sound('Chirac le ouf', 'lebruitetlodeur.mp3', 'chirac.jpg'));
     soundList.push(new Sound('Indignité', 'indignite.mp3', 'sarkozy.jpg'));
     soundList.push(new Sound('Indignité', 'indignite.mp3', 'sarkozy.jpg'));
-    soundList.push(new Sound('Indignité', 'indignite.mp3', 'sarkozy.jpg'));
-    soundList.push(new Sound('Indignité', 'indignite.mp3', 'sarkozy.jpg'));
-    soundList.push(new Sound('Indignité', 'indignite.mp3', 'sarkozy.jpg'));
 
     const soundBoard: Soundboard = new Soundboard();
     soundBoard.name = 'Bios Sound';

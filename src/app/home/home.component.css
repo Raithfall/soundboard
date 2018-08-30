@@ -8,6 +8,10 @@ mat-grid-tile.mat-card {
   transition: all .1s linear;
 }
 
+.mat-card-title h2 {
+  margin: 0;
+}
+
 mat-grid-tile.mat-card:hover {
   box-shadow: 0 0 15px 1px black;
 }
@@ -18,13 +22,12 @@ mat-grid-tile.mat-card:active {
 
 
 .mat-grid-tile-header {
-  /*primary theme color*/
-  /*visibility: hidden;*/
   background: rgb(63, 81, 181) !important;
 }
 
-mat-grid-tile.mat-card:hover .mat-grid-tile-header {
-  /*visibility: visible;*/
+.mat-grid-tile .mat-grid-tile-footer {
+  padding: 0;
+  height: 5px;
 }
 
 .landscape {

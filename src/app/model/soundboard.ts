@@ -7,4 +7,14 @@ export class Soundboard {
 
   constructor() {
   }
+
+  isPlaying(): boolean {
+    return !!this.sounds.filter(sound => sound.isPlaying()).length;
+  }
+
+  play(sound: Sound) {
+    this.sounds.map(s => s.stop());
+    sound.play();
+  }
+
 }
