@@ -2,9 +2,9 @@
   <mat-card-content>
     <div layout="row" layout-align="center center">
       <h1>{{soundboard.name}}</h1>
+      <div *ngIf="soundboard.isPlaying()" style="margin: auto;"><mat-icon>volume_up</mat-icon></div>
       <div fxFlex></div>
-      <div *ngIf="soundboard.isPlaying()"><mat-icon>volume_up</mat-icon></div>
-      <button mat-fab color="primary"><i class="material-icons">add</i></button>
+      <button mat-fab color="primary" style="margin: auto;"><i class="material-icons">add</i></button>
     </div>
   </mat-card-content>
 </mat-card>
@@ -16,7 +16,7 @@
                  *ngFor="let sound of soundboard.sounds">
     <div class="mat-grid-tile-header" *ngIf="sound.isActive" [@slideInOut]>{{sound.name}} </div>
     <div class="landscape"><img src="assets/sounds/{{sound.image}}"></div>
-    <div class="mat-grid-tile-footer" *ngIf>
+    <div class="mat-grid-tile-footer" *ngIf="sound.isPlaying()">
       <mat-progress-bar [value]="sound.audio.currentTime/sound.audio.duration*100"></mat-progress-bar>
     </div>
   </mat-grid-tile>
