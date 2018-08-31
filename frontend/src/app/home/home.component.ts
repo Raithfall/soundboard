@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.colsNumber = 5;
     this.soundboard = this.soundService.getDefaultSoundBoard();
+    this.soundService.getAll().subscribe(() => console.log('yo'));
   }
 
   play(sound: Sound) {

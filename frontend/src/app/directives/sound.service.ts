@@ -1,13 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Sound} from '../model/sound';
 import {Soundboard} from '../model/soundboard';
+import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SoundService {
 
-  constructor() {
+  myServer = 'localhost:8080' + '/soundboard';
+
+  constructor(private http: HttpClient) {
   }
 
   getDefaultSoundBoard(): Soundboard {
@@ -23,6 +27,10 @@ export class SoundService {
     soundBoard.sounds = soundList;
 
     return soundBoard;
+  }
+
+  getAll(): Observable<any> {
+    return this.http.get(this.myServer + '/all');
   }
 
 }
