@@ -9,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class SoundService {
 
-  myServer = 'localhost:8080' + '/soundboard';
+  myServer = '/soundboard';
 
   constructor(private http: HttpClient) {
   }
@@ -29,8 +29,24 @@ export class SoundService {
     return soundBoard;
   }
 
-  getAll(): Observable<any> {
-    return this.http.get(this.myServer + '/all');
+  getAll(): Observable<Soundboard[]> {
+    return this.http.get<Soundboard[]>(this.myServer + '/all');
+  }
+
+  getById(id): Observable<Soundboard> {
+    return this.http.get<Soundboard>(this.myServer + '/' + id);
+  }
+
+  create(soundboard): Observable<Soundboard> {
+    return this.http.post<Soundboard>(this.myServer, soundboard);
+  }
+
+  update(soundboard): Observable<Soundboard> {
+    return this.http.put<Soundboard>(soundboard.id, soundboard);
+  }
+
+  delete(soundboard): Observable<any> {
+    return this.http.delete(soundboard.id);
   }
 
 }

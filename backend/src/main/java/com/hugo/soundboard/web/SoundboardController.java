@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController()
 @RequestMapping("/soundboard")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SoundboardController {
 
   @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -18,6 +19,7 @@ public class SoundboardController {
   }
 
   @ResponseBody
+  @ResponseStatus(HttpStatus.OK)
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   public Soundboard findOne(@PathVariable("id") Long id) {
     Soundboard mysoundboard = new Soundboard();

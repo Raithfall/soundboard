@@ -1,10 +1,19 @@
 package com.hugo.soundboard.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 public class Soundboard {
-  private UUID id;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  protected UUID id;
+
   private String name;
   private List<Sound> sounds;
 

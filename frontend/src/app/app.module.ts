@@ -10,7 +10,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {BackendRequestInterceptor} from './interceptor/http.interceptor';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -50,7 +51,7 @@ const appRoutes: Routes = [
       { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: BackendRequestInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

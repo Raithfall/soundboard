@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SoundService} from '../directives/sound.service';
 import {Sound} from '../model/sound';
-import {Soundboard} from '../model/soundboard';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {Soundboard} from '../model/soundboard';
 
 @Component({
   selector: 'app-home',
@@ -31,11 +31,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.colsNumber = 5;
     this.soundboard = this.soundService.getDefaultSoundBoard();
-    this.soundService.getAll().subscribe(() => console.log('yo'));
   }
 
   play(sound: Sound) {
     this.soundboard.play(sound);
+    this.soundService.getById(1).subscribe((soundboard) => console.log(soundboard.name));
+
   }
 
 }

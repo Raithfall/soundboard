@@ -1,6 +1,7 @@
 import {Sound} from './sound';
 
 export class Soundboard {
+  id: string;
   name: string;
   description: string;
   sounds: Sound[];
