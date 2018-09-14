@@ -24,7 +24,7 @@ public class SoundboardApplication {
   public DataSource dataSource() {
 
     EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-    return builder.setType(EmbeddedDatabaseType.HSQL).build();
+    return builder.setType(EmbeddedDatabaseType.H2).build();
   }
 
   @Bean
@@ -35,7 +35,7 @@ public class SoundboardApplication {
 
     LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
     factory.setJpaVendorAdapter(vendorAdapter);
-    factory.setPackagesToScan("com.acme.domain");
+    factory.setPackagesToScan("com.hugo.soundboard");
     factory.setDataSource(dataSource());
     factory.afterPropertiesSet();
 
